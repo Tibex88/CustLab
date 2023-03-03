@@ -1,0 +1,37 @@
+.box {
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+}
+
+div:has(> div.loading_screen) {
+  /* background-color: "green";s */
+  /* border: 5px solid green; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* box-sizing: border-box; */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform-origin: 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* will dislpace the loader  */
+  /* width: inherit;
+  height: inherit; */
+}
+
+/* 
+will center it
+position: absolute;
+    top: 0px;
+    left: 0px;
+    transform-origin: 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+*/

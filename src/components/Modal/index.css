@@ -1,0 +1,148 @@
+.color_item {
+    padding: 0.7rem;
+    margin: 8px;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    /* height: 52px; */
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+.color_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    /* background-color: green; */
+}
+
+.canvases {
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 20px;
+    /* hides the elements on the canvas */
+    /* background: #EAEAEA;  */
+    /* //#d7d7d7 to #fdfdfd */
+    /* box-shadow: inset 8px 8px 16px #fdfdfd, inset -8px -8px 16px #fdfdfd;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px; */
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+.colorCollection {
+    display: flex;
+    flex-direction: column;
+    /* row-gap: 0.7rem; */
+    /* height: 20rem; */
+}
+
+#toolCan {
+    display: none;
+}
+
+.resize {
+    margin-top: -0.5rem;
+}
+
+.cla {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 0;
+    font-size: .8rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    column-gap: 2rem;
+}
+
+.buttons1 {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
+
+.buttons2 {
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    /* gap: 2rem; */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brush {
+    font-size: 1.5rem;
+}
+
+.HexColorPicker {
+    width: 20rem;
+    height: 10rem;
+}
+
+
+/*
+ .colorCollection {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .canvases {
+     width: 500px;
+     height: 500px;
+     border: 1px solid red;
+ }
+ 
+ .editor {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ #toolCan {
+     width: 50px;
+     height: 20px;
+ }
+ 
+ .resize {}
+ 
+ .buttons {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+ 
+ .layout {
+     display: flex;
+     gap: 20px;
+ }
+ 
+ .add_remove {
+     display: flex;
+     gap: 20px;
+ }
+ 
+ */
