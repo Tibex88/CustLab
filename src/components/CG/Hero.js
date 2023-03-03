@@ -4,16 +4,6 @@ import "./style.css"
 
 export default function Hero() {
   return (
-    //         {/* // <!DOCTYPE html>
-    // // <html lang="en">
-
-    // // <head>
-    // //     <meta charset="UTF-8">
-    // //     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    // //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    // //     <title>Document</title>
-    // //     <link rel="stylesheet" href="./style.css">
-    // // </head> */}
     <>
       <div className="kk">
         <section>
@@ -30,7 +20,10 @@ export default function Hero() {
           <section className="intro">
             <div className="desc-intro">
               <h2>ENDLESS CUSTOMIZATION.</h2>
-              <p>Custlab is an online platform where users can upload, view, and share 3D models. It also offers various customization options, including the ability to apply custom details or decals to 3D models.</p>
+              <p>
+                Custlab is an online platform where users can upload, view, and share 3D models. It also offers various customization
+                options, including the ability to apply custom details or decals to 3D models.
+              </p>
               {/* <p>
                 Use code MAXMYPS4 to build your Impact or Infinity for $199.99, code MAXMYPS5 to build your Reflex for $239.99, or code
                 MAXMYXBOX to build your Instinct Pro for $199.99
@@ -100,65 +93,28 @@ export default function Hero() {
 
           <div className="gallery">
             <figure className="gallery-item">
-              <img
-                src="./image/3d.png"
-                alt="Photo of beautifully
-              arranged food"
-              />
+              <img src="./image/3d (23).png" alt="end result of customization" />
             </figure>
             <figure className="gallery-item">
-              <img
-                src="./image/3d (10).png"
-                alt="Photo of beautifully
-              arranged food"
-              />
-            </figure>
-            {/* <figure className="gallery-item">
               <img src="./image/3d(15).png" alt="3d15" />
-            </figure> */}
-            <figure className="gallery-item">
-              <img
-                src="./image/3d (27).png"
-                alt="Photo of beautifully
-              arranged food"
-              />
             </figure>
             <figure className="gallery-item">
-              <img
-                src="./image/3d (28).png"
-                alt="Photo of beautifully
-              arranged food"
-              />
-            </figure>
-            {/* <figure className="gallery-item">
               <img src="./image/3d12.png" alt="3d12" />
-            </figure> */}
-            <figure className="gallery-item">
-              <img
-                src="./image/3d (13).png"
-                alt="Photo of beautifully
-              arranged food"
-              />
             </figure>
             <figure className="gallery-item">
-              <img
-                src="./image/3d (27).png"
-                alt="Photo of beautifully
-              arranged food"
-              />
+              <img src="./image/3d (34).png" alt="end result of customization" />
             </figure>
             <figure className="gallery-item">
-              <img
-                src="./image/3d (31).png"
-                alt="Photo of beautifully
-              arranged food"
-              />
+              <img src="./image/3d (32).png" alt="end result of customization" />
+            </figure>
+            <figure className="gallery-item">
+              <img src="./image/3d (29).png" alt="end result of customization" />
             </figure>
           </div>
         </section>
         <footer>
           <p>
-            <a href=""> Copyright © 2023 3d shape simulation app. All Rights Reserved.</a>
+            <a href=""> Copyright © 2023 3d Product customization app. All Rights Reserved.</a>
           </p>
         </footer>
       </div>
