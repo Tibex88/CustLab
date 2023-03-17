@@ -5,6 +5,14 @@ export let ps5 = proxy({
   items: [
     //settings for each part of the 3d object
     {
+      name: "touchsurface",
+      color: "#ff0000",
+      scale: 69.34,
+      position: [42.35, 101.18, -14.18],
+      hidden: true,
+      texture: "/images/UV_Grid.webp",
+    },
+    {
       name: "rl_buttons",
       color: "#ff0000",
       scale: [10.52, 12.02, 10.15],
@@ -45,14 +53,7 @@ export let ps5 = proxy({
       hidden: true,
       texture: "/images/UV_Grid.webp",
     },
-    {
-      name: "touchsurface",
-      color: "#ff0000",
-      scale: 69.34,
-      position: [42.35, 101.18, -14.18],
-      hidden: true,
-      texture: "/images/UV_Grid.webp",
-    },
+
     {
       name: "back",
       color: "#ff0000",
