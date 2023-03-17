@@ -26,10 +26,6 @@ const Modal = () => {
   let eyeDropper;
 
   useEffect(() => {
-    // console.log(tCan.current)
-    // setCtx(temp)
-    // setCtx(tCan.current.getContext("2d"))
-
     let t = canvasRefs.current.map((canva, index) => {
       var canv = new fabric.Canvas(canva.current, {
         preserveObjectStacking: true,
@@ -44,11 +40,18 @@ const Modal = () => {
       canv.on("after:render", function (options) {
         setDrawing(index)
       })
-
       return canv
     })
     setCanvas(t)
+    // console.log(localStorage.getItem("0"))
+    // console.log(localStorage.getItem(0))
+    // if (localStorage.getItem("0")) {
+
+    // }
   }, [])
+  // useEffect(() => {
+  //   restore()
+  // }, [canvasRefs])
 
   useEffect(() => {
     setCtx(tCan.current.getContext("2d"))
@@ -280,58 +283,91 @@ const Modal = () => {
     canvas[index].discardActiveObject();
   }
 
+  function save() {
+    canvas.forEach((item, index) => {
+      localStorage.setItem(index, JSON.stringify(item.toJSON()))
+    })
+  }
+
+  function restore() {
+    console.log("restore")
+    for (let i = 0; i < 13; i++) {
+      console.log(canvas[i])
+      console.log(i)
+      canvas[i].loadFromJSON((JSON.parse(localStorage.getItem(i))))
+    }
+  }
+
   return (
 
-      <div className="modal">
-        {/* Canvas that correponds to each object in the 3d model */}
-        <div>
-          {ps5.items.map((el, index) => {
-            return (
-              <div key={index} hidden={el.hidden} >
-                <canvas className="canvases" key={index} ref={canvasRefs.current[index]} ></canvas>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className="editor" >
-          <div className="cla">
-
-            <BsFillPencilFill color={brushColor} className="brush" />
-            <h2>Choose Color</h2>
-          </div>
-          <div className="colorCollection">
-            <HexColorPicker color={brushColor} className="HexColorPicker"
-              onChange={(c) => {
-                color(c)
-              }}
-            />
-            <button className="btn" onClick={pickColor}>
-              Eye Dropper Tool
-            </button>
-            <div className="color_list">
-        {savedColors.map((el, index) => {
+    <div className="modal">
+      {/* Canvas that correponds to each object in the 3d model */}
+      <div>
+        {ps5.items.map((el, index) => {
           return (
-            <div className="color_item" style={{ background: `${el}` }} onClick={() => { color(el) }} key={index}>{el}</div>
+            <div key={index} hidden={el.hidden} >
+              <canvas className="canvases" key={index} ref={canvasRefs.current[index]} ></canvas>
+            </div>
           )
         })}
       </div>
-          </div>
 
-          <div className="resize">
-            <canvas id="toolCan" ref={tCan}></canvas>
-            <input
-              type="range"
-              id="colorWidth"
-              ref={colorWidth}
-              min="1"
-              max="30"
-              onInput={range}
-            />
-          </div>
+      <div className="editor" >
+        <div className="cla">
 
-          <div className="buttons">
-<div className="buttons1">
+          <BsFillPencilFill color={brushColor} className="brush" />
+          <h2>Choose Color</h2>
+        </div>
+        <div className="colorCollection">
+          <HexColorPicker color={brushColor} className="HexColorPicker"
+            onChange={(c) => {
+              color(c)
+            }}
+          />
+          <button className="btn" onClick={pickColor}>
+            Eye Dropper Tool
+          </button>
+          <div className="color_list">
+            {savedColors.map((el, index) => {
+              return (
+                <div className="color_item" style={{ background: `${el}` }} onClick={() => { color(el) }} key={index}>{el}</div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="resize">
+          <canvas id="toolCan" ref={tCan}></canvas>
+          <input
+            type="range"
+            id="colorWidth"
+            ref={colorWidth}
+            min="1"
+            max="30"
+            onInput={range}
+          />
+        </div>
+
+        <div className="buttons">
+          <div className="buttons1">
+            <button
+              className="btn btn-secondary"
+              id=""
+              onClick={save}
+            >
+              {"Save"}
+
+            </button>
+
+            <button
+              className="btn btn-secondary"
+              id=""
+              onClick={restore}
+            >
+              {"Restore"}
+            </button>
+
+
             <button
               className="btn btn-secondary"
               id="selObj"
@@ -347,51 +383,51 @@ const Modal = () => {
             >
               Clear Canvas
             </button>
-</div>
-<div className="buttons2">
-   
-              <BsLayerBackward
-                title={"Send object to back"}
-                onClick={sendToBack}
-                className="btn btn-secondary"
-              />
+          </div>
+          <div className="buttons2">
 
-              <BsLayerForward
-                title={"Bring object forward"}
-                onClick={sendToFront}
-                className="btn btn-secondary"
-              />
-        
-           
-              <select
-                className="custom-select"
-                ref={objectSelector}
-                id="paintOption">
-                <option value="rectangle">Rectangle</option>
-                <option value="triangle">Triangle</option>
-                <option value="circle">Circle</option>
-                <option value="line">Line</option>
-                <option value="text">Textbox</option>
-                <option value="image">Image</option>
-              </select>
-              <button className="btn btn-primary" onClick={add} value="add" id="add">
-                <FaPlus />
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={deleteObjects}
-                value="delete"
-                id="delete"
-              >
-                <FaTimes />
-              </button>
-         
-            </div>
+            <BsLayerBackward
+              title={"Send object to back"}
+              onClick={sendToBack}
+              className="btn btn-secondary"
+            />
+
+            <BsLayerForward
+              title={"Bring object forward"}
+              onClick={sendToFront}
+              className="btn btn-secondary"
+            />
+
+
+            <select
+              className="custom-select"
+              ref={objectSelector}
+              id="paintOption">
+              <option value="rectangle">Rectangle</option>
+              <option value="triangle">Triangle</option>
+              <option value="circle">Circle</option>
+              <option value="line">Line</option>
+              <option value="text">Textbox</option>
+              <option value="image">Image</option>
+            </select>
+            <button className="btn btn-primary" onClick={add} value="add" id="add">
+              <FaPlus />
+            </button>
+            <button
+              className="btn btn-danger"
+              onClick={deleteObjects}
+              value="delete"
+              id="delete"
+            >
+              <FaTimes />
+            </button>
+
           </div>
         </div>
       </div>
+    </div>
 
-   
+
   )
 }
 
